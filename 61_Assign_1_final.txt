@@ -1,0 +1,48 @@
+//Problem Link: https://www.hackerrank.com/challenges/binary-search-tree-insertion/problem
+
+Node * insert(Node * root, int key) {
+        if(root==NULL)
+        {
+            root = new Node(key);
+            return root;
+        }
+        Node *temp=root;
+        while(temp!=NULL)
+        {
+            if(key<temp->data)
+            {
+                if(temp->left==NULL)
+                {
+                    temp->left= new Node(key);
+                    break;
+                }                
+                temp=temp->left;
+            }
+            else if(key>temp->data)
+            {
+                if(temp->right==NULL)
+                {
+                    temp->right= new Node(key);
+                    break;
+                }
+                temp=temp->right;
+            }
+        }
+        return root;
+    }
+
+// RECURSIVE APPROACH
+  /*  Node * insert(Node * root, int key) {
+        if(root==NULL)
+        {
+            root = new Node(key);
+            return root;
+        }
+        
+        if(key<root->data)
+            root->left = insert(root->left,key);
+        else if(key>root->data)
+            root->right = insert(root->right,key);
+
+        return root;
+    } */
